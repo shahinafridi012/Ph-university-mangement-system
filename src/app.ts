@@ -1,9 +1,9 @@
-
-import express, { Application, Request, Response} from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import globalErrorHandler from './app/middlewares/globalErrorhandler';
-import notFound from './app/middlewares/notFound';
+
 import router from './app/routes';
+import notFound from './app/middlewares/notFound';
 const app: Application = express();
 // Middleware
 app.use(express.json());
@@ -17,5 +17,5 @@ const test = (req: Request, res: Response) => {
 app.get('/', test);
 // console.log(`Current working directory: ${process.cwd()}`);
 app.use(globalErrorHandler);
-app.use(notFound)
+app.use(notFound);
 export default app;
