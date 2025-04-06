@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+
 import { ErrorRequestHandler } from 'express';
-import { ZodError, ZodIssue } from 'zod';
+import { ZodError} from 'zod';
 import { TErrorSource } from '../interface/error';
 import config from '../config';
 import handleZodError from '../errors/handleZodError';
@@ -72,26 +73,3 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
 
 export default globalErrorHandler;
 
-//pattern
-
-//   import { NextFunction, Request, Response } from "express";
-
-// const globalErrorHandler = (
-//   err: any,
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const statusCode = err.status || 500; // Ensure it takes the status from error
-//   const message = err.message || "Something Went Wrong";
-
-//   res.status(statusCode).json({
-//     success: false,
-//     message,
-//     error: process.env.NODE_ENV === "development" ? err.stack : undefined, // Hide error stack in production
-//   });
-
-//   next(); // Ensure Express knows middleware execution is complete
-// };
-
-// export default globalErrorHandler;
