@@ -21,7 +21,7 @@ const semesterRegistrationSchema = new mongoose.Schema<TSemesterRegistration>(
       required: true,
     },
     endDate: {
-      type: Date,
+      type: Date, 
       required: true,
     },
     minCredit: {
