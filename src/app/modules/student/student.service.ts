@@ -68,6 +68,7 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   //   if (query) return fieldQuery;
   const studentQuery = new QueryBuilder(
     Student.find()
+      .populate('user')
       .populate('admissionSemester')
       .populate({
         path: 'academicDepartment',
@@ -150,7 +151,7 @@ const deleteStudentFromDB = async (id: string) => {
     }
     const userId = deletedStudent.user;
     const deletedUser = await User.findByIdAndUpdate(
-       userId ,
+      userId,
       { isDeleted: true },
       { new: true, session },
     );
